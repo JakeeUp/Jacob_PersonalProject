@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Camera Look")]
     public Transform cameraContainer; 
-    public float minXLook, maxXLook; 
+    public float minXLook, maxXLook;
+    public Transform transformToFollow;
     private float camCurrentXRotation; 
     public float lookSensitivity; 
     private Vector2 mouseDelta;
@@ -46,6 +47,12 @@ public class PlayerController : MonoBehaviour
         if (canLook == true)
         {
             CameraLook();
+        }
+
+        // Ensure the camera follows the head transform
+        if (transformToFollow != null)
+        {
+            transform.position = transformToFollow.position;
         }
 
     }
