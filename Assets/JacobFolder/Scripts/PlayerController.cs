@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerAttributes))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Sound")]
@@ -25,14 +26,14 @@ public class PlayerController : MonoBehaviour
     private float camCurrentXRotation; 
     public float lookSensitivity; 
     private Vector2 mouseDelta;
-    private Rigidbody myRig;
+    private Rigidbody playerRig;
 
     [HideInInspector]
     public bool canLook = true;
 
     private void Awake()
     {
-        myRig = GetComponent<Rigidbody>();
+        playerRig = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
     }
     private void Start()
@@ -58,8 +59,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 moveDirection = transform.forward * currentMovementInput.y + transform.right * currentMovementInput.x;
         moveDirection *= moveSpeed;
-        moveDirection.y = myRig.velocity.y;
-        myRig.velocity = moveDirection;
+        moveDirection.y = playerRig.velocity.y;
+        playerRig.velocity = moveDirection;
         if (moveDirection.magnitude > footStepThreshHold && IsGrounded())
         {
             if (Time.time - lastStepTime > footStepRate)
@@ -103,7 +104,7 @@ public class PlayerController : MonoBehaviour
         {
             if (IsGrounded())
             {
-                myRig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                playerRig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             }
         }
     }
