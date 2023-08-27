@@ -10,17 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3ce4d437e7df0542823f8e02ee7c11b, type: 3}
-  m_Name: BigMedKit
+  m_Name: Rotten Flesh
   m_EditorClassIdentifier: 
-  ItemName: Big Med Kit
-  itemDescription: This can help with health
-  type: 1
-  icon: {fileID: 21300000, guid: 228f8d4ac11034540861ec3d95120898, type: 3}
-  dropPrefab: {fileID: 8197074267158492701, guid: 3ca70ca1eaa428f4aae71c673fe8d4d6,
-    type: 3}
-  canStack: 1
-  maxStackAmount: 10
-  consumable:
-  - type: 2
-    value: 50
+  ItemName: 
+  itemDescription: 
+  type: 0
+  icon: {fileID: 0}
+  dropPrefab: {fileID: 0}
+  canStack: 0
+  maxStackAmount: 0
+  consumable: []
   equipPrefab: {fileID: 0}

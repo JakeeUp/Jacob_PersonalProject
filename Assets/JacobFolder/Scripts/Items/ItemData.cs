@@ -28,7 +28,7 @@ public class ItemData : ScriptableObject
     public Sprite icon;
     public GameObject dropPrefab;
 
-    [Header("Staking Items")]
+    [Header("Stacking Items")]
     public bool canStack;
     public int maxStackAmount;
 

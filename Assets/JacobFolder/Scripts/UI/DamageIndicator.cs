@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//WRITE AS MANY NOTES AS POSSIBLE NEED TO KNOW THIS 
 public class DamageIndicator : MonoBehaviour
 {
     public Image damageImage;
