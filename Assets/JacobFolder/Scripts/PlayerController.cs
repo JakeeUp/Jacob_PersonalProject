@@ -4,6 +4,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerAttributes))]
+[RequireComponent(typeof(InteractionManager))]
+[RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Inventory))]
+
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Sound")]
@@ -16,6 +22,17 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public LayerMask groundLayer;
 
+    [Header("Crouching")]
+    public float crouchSpeed = 2f; 
+    private bool isCrouching = false;
+    public AudioClip[] crouchStepSounds;
+    public float crouchHeightOffset = 0.5f;
+
+
+    private CapsuleCollider capsuleCollider;
+    private float originalCapsuleHeight;
+    private Vector3 originalCameraLocalPosition;
+
     [Header("Movement")]
     public float moveSpeed = 4f;  
     private Vector2 currentMovementInput;
@@ -23,11 +40,18 @@ public class PlayerController : MonoBehaviour
     [Header("Camera Look")]
     public Transform cameraContainer; 
     public float minXLook, maxXLook;
-    public Transform transformToFollow;
     private float camCurrentXRotation; 
     public float lookSensitivity; 
     private Vector2 mouseDelta;
     private Rigidbody playerRig;
+
+    [Header("Bobbing Movement")] 
+    public float bobbingSpeed = 1.5f; 
+    public float bobbingAmount = 0.05f;
+    private Vector3 cameraInitialPosition;
+
+    private float timer;
+
 
     [HideInInspector]
     public bool canLook = true;
@@ -40,6 +64,11 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        cameraInitialPosition = cameraContainer.localPosition;
+
+        capsuleCollider = GetComponent<CapsuleCollider>();
+        originalCapsuleHeight = capsuleCollider.height;
+        originalCameraLocalPosition = cameraContainer.localPosition;
     }
 
     private void LateUpdate()
@@ -49,23 +78,29 @@ public class PlayerController : MonoBehaviour
             CameraLook();
         }
 
-        // Ensure the camera follows the head transform
-        if (transformToFollow != null)
-        {
-            transform.position = transformToFollow.position;
-        }
-
+        HandleBobbingMovement();
     }
 
     private void FixedUpdate()
     {
         HandleMove();
+        HandleCrouch();
+
+
     }
 
     private void HandleMove()
     {
         Vector3 moveDirection = transform.forward * currentMovementInput.y + transform.right * currentMovementInput.x;
-        moveDirection *= moveSpeed;
+
+        float speed = moveSpeed;
+       
+        if (isCrouching)
+        {
+            speed = crouchSpeed;
+        }
+
+        moveDirection *= speed;
         moveDirection.y = playerRig.velocity.y;
         playerRig.velocity = moveDirection;
         if (moveDirection.magnitude > footStepThreshHold && IsGrounded())
@@ -73,8 +108,30 @@ public class PlayerController : MonoBehaviour
             if (Time.time - lastStepTime > footStepRate)
             {
                 lastStepTime = Time.time;
-                audioSource.PlayOneShot(stepSounds[Random.Range(0, stepSounds.Length)]);
+                if (isCrouching)
+                {
+                    Debug.Log("Crouch Footstep");
+                    audioSource.PlayOneShot(crouchStepSounds[Random.Range(0, crouchStepSounds.Length)]);
+                }
+                else
+                {
+                    Debug.Log("Normal Footstep");
+                    audioSource.PlayOneShot(stepSounds[Random.Range(0, stepSounds.Length)]);
+                }
             }
+        }
+    }
+    private void HandleCrouch()
+    {
+        if (isCrouching)
+        {
+            capsuleCollider.height = originalCapsuleHeight * 0.5f; 
+            cameraContainer.localPosition = originalCameraLocalPosition + Vector3.down * 0.5f; 
+        }
+        else
+        {
+            capsuleCollider.height = originalCapsuleHeight;
+            cameraContainer.localPosition = originalCameraLocalPosition; 
         }
     }
 
@@ -95,14 +152,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-
     private void CameraLook()
     {
         camCurrentXRotation += mouseDelta.y * lookSensitivity;
         camCurrentXRotation = Mathf.Clamp(camCurrentXRotation, minXLook, maxXLook);
         cameraContainer.localEulerAngles = new Vector3(-camCurrentXRotation, 0, 0);
         transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity, 0);
+    }
+    private void HandleBobbingMovement()
+    {
+        float horizontalInput = currentMovementInput.x;
+        float verticalInput = currentMovementInput.y;
+
+        float bobbingOffset = Mathf.Sin(timer) * bobbingAmount;
+
+        Vector3 cameraLocalPosition = cameraContainer.localPosition;
+        cameraLocalPosition.y = cameraInitialPosition.y + bobbingOffset;
+        cameraContainer.localPosition = cameraLocalPosition;
+
+        float speedFactor = Mathf.Clamp01(new Vector2(horizontalInput, verticalInput).magnitude);
+        timer += speedFactor * bobbingSpeed * Time.deltaTime;
     }
 
     public void HandleJumpInput(InputAction.CallbackContext context)
@@ -116,15 +185,29 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void HandleCrouchInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            isCrouching = !isCrouching;
+        }
+    }
+
+
     bool IsGrounded()
     {
-        Ray[] rays = new Ray[4]
+        Ray[] rays = new Ray[4];
+
+        Vector3 raycastOrigin = transform.position + (Vector3.up * 0.02f);
+        if (isCrouching)
         {
-            new Ray(transform.position + (transform.forward* 0.2f)+(Vector3.up * 0.02f),Vector3.down),
-            new Ray(transform.position + (-transform.forward* 0.2f)+(Vector3.up * 0.02f),Vector3.down),
-            new Ray(transform.position + (transform.right* 0.2f)+(Vector3.up * 0.02f),Vector3.down),
-            new Ray(transform.position + (-transform.right* 0.2f)+(Vector3.up * 0.02f),Vector3.down)
-        };
+            raycastOrigin += Vector3.up * crouchHeightOffset; // Adjust this value as needed
+        }
+
+        rays[0] = new Ray(raycastOrigin + (transform.forward * 0.2f), Vector3.down);
+        rays[1] = new Ray(raycastOrigin - (transform.forward * 0.2f), Vector3.down);
+        rays[2] = new Ray(raycastOrigin + (transform.right * 0.2f), Vector3.down);
+        rays[3] = new Ray(raycastOrigin - (transform.right * 0.2f), Vector3.down);
 
         for (int i = 0; i < rays.Length; i++)
         {

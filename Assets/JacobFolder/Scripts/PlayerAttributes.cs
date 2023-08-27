@@ -66,7 +66,6 @@ public class PlayerAttributes : MonoBehaviour, IDamageable
 
     public void Heal(float amount)
     {
-        //add to _health depend on that amount
         _health.Add(amount);
     }
 
@@ -82,7 +81,6 @@ public class PlayerAttributes : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damageAmount)
     {
-        //reduce _health depend on damage amount
         _health.Subtract(damageAmount);
         //if we get damage then invoke 
         getDamage?.Invoke();
@@ -102,32 +100,20 @@ public class pAttributes
 
     public void Add(float amount)
     {
-        //current value is the minimum value of 2 number 
         currentValue = Mathf.Min(currentValue + amount, maxValue);
     }
 
     public void Subtract(float amount)
     {
-        //current value is the maximum value of 2 number
         currentValue = Mathf.Max(currentValue - amount, 0.0f);
     }
 
     public float GetPercentage()
     {
-        //return us the result of divid between current value and max value
         return currentValue / maxValue;
     }
 }
 
-//What is the interface???
-//Interfaces are a set of methods, properties, and other members that a target class must implement.
-//C# is a type-safe language, meaning it checks if every statement is using Data Types correctly,
-//by using an interface as your Data Type, you are able to access the interface fields on different classes.
-//The idea is to have multiple classes that implement the IDamageable class,
-//so we can reference the Interface rather than the classes themselves.
-//In this example, we could have the Player, Enemies, and Props all implement the IDamegeable,
-//this way if we get a collision in Unity,
-//we check if it is IDamegeable, and apply corresponding damage, regardless of its class.
 public interface IDamageable
 {
     void TakeDamage(int DamageAmount);

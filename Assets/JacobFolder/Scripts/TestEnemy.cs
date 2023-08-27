@@ -11,6 +11,7 @@ public class TestEnemy : MonoBehaviour
     private void Start()
     {
         StartCoroutine("DamageStuff");
+      
     }
 
    
