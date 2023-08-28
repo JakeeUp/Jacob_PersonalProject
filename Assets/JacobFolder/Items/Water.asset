@@ -13,11 +13,17 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   ItemName: Water Bottle
-  itemDescription: This can help with Thirst
+  itemDescription: " \"Grab a swig of 'Zombie Repellent' \u2013 this water's so pure,
+    even the undead are jealous of its cleanliness. Stay hydrated and show those
+    zombies that you've got more than just a sharp wit \u2013 you've got a well-hydrated
+    survival instinct!\""
   type: 1
   icon: {fileID: 21300000, guid: 3c8010c4a8032ac4597ff2d9310163d3, type: 3}
-  dropPrefab: {fileID: 0}
+  dropPrefab: {fileID: 8476287829809890674, guid: cc8dbe3decce0564ab5d8d8a50ea24a2,
+    type: 3}
   canStack: 1
-  maxStackAmount: 0
-  consumable: []
+  maxStackAmount: 5
+  consumable:
+  - type: 1
+    value: 60
   equipPrefab: {fileID: 0}

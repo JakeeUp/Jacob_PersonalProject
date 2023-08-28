@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4519168898194259296}
-  - component: {fileID: 2562736815925614619}
   - component: {fileID: 6538643889446157427}
   - component: {fileID: 4710034863417372912}
+  - component: {fileID: 52310539614102199}
   m_Layer: 10
   m_Name: WaterBottle
   m_TagString: Untagged
@@ -35,27 +35,6 @@ Transform:
   - {fileID: 3011681874119521189}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2562736815925614619
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8476287829809890674}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.17468701, y: 0.2207108, z: 0.13199769}
-  m_Center: {x: 0.0048686564, y: -0.034057498, z: -0.0029851913}
 --- !u!54 &6538643889446157427
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -96,6 +75,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 35b5ffc772d8f0040a18d9dac665ec2f, type: 2}
+--- !u!136 &52310539614102199
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476287829809890674}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Height: 0.22
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.05, z: 0}
 --- !u!1001 &3009825876351817809
 PrefabInstance:
   m_ObjectHideFlags: 0

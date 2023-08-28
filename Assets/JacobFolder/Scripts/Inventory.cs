@@ -115,7 +115,13 @@ public class Inventory : MonoBehaviour
 
     void ThrowItem(ItemData item)
     {
-        Instantiate(item.dropPrefab, dropPosition.position, dropPosition.rotation);
+        GameObject droppedItem = Instantiate(item.dropPrefab, dropPosition.position, dropPosition.rotation);
+        Rigidbody itemRigidbody = droppedItem.GetComponent<Rigidbody>();
+        if (itemRigidbody != null)
+        {
+            Vector3 pushDirection = dropPosition.forward + Vector3.up * 0.2f; 
+            itemRigidbody.AddForce(pushDirection.normalized * 200f); 
+        }
     }
 
     void UpdateUI()

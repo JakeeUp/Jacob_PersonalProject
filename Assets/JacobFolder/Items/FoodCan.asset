@@ -13,11 +13,18 @@ MonoBehaviour:
   m_Name: FoodCan
   m_EditorClassIdentifier: 
   ItemName: Food Can
-  itemDescription: This can help with hunger
+  itemDescription: "\"Dig into a can of 'Zom-Be-Gone' \u2013 our mystery meat masterpiece
+    that'll have you fueled up and ready to take on the undead. It's so hearty, even
+    zombies might consider a career change to become chefs!\""
   type: 1
   icon: {fileID: 21300000, guid: 34e71aa10eaa6594d8f958e9ee933c95, type: 3}
-  dropPrefab: {fileID: 0}
+  dropPrefab: {fileID: 2875161864897337267, guid: f3c390c4d3801f94390fbc496c6491dc,
+    type: 3}
   canStack: 1
-  maxStackAmount: 0
-  consumable: []
+  maxStackAmount: 10
+  consumable:
+  - type: 0
+    value: 70
+  - type: 1
+    value: 5
   equipPrefab: {fileID: 0}

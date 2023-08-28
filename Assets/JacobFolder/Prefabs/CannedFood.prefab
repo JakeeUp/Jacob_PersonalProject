@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7373648209375453438}
-  - component: {fileID: 4103738777711814927}
   - component: {fileID: 4988993607340059657}
   - component: {fileID: 7721214451277157784}
+  - component: {fileID: 3455931953779967093}
   m_Layer: 10
   m_Name: CannedFood
   m_TagString: Untagged
@@ -35,27 +35,6 @@ Transform:
   - {fileID: 1059970372412080466}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4103738777711814927
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2875161864897337267}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.089832604, y: 0.1254177, z: 0.098024845}
-  m_Center: {x: -0.0004095614, y: 0.0036273778, z: 0.0011513233}
 --- !u!54 &4988993607340059657
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -96,6 +75,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 30795a3341fa26744a078f7e78f41e44, type: 2}
+--- !u!136 &3455931953779967093
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2875161864897337267}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Height: 0.15
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1055392733682184680
 PrefabInstance:
   m_ObjectHideFlags: 0
