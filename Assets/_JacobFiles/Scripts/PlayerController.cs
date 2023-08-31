@@ -8,7 +8,6 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(Inventory))]
 
 public class PlayerController : MonoBehaviour
 {
