@@ -84,8 +84,6 @@ public class PlayerController : MonoBehaviour
     {
         HandleMove();
         HandleCrouch();
-
-
     }
 
     private void HandleMove()

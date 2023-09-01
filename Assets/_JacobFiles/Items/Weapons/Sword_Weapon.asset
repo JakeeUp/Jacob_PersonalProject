@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3ce4d437e7df0542823f8e02ee7c11b, type: 3}
+  m_Name: Sword_Weapon
+  m_EditorClassIdentifier: 
+  ItemName: Soulcleaver
+  itemDescription: "\"Unleash reaper vibes with the 'Soulcleaver' scythe sword \u2013
+    mow down zombies like overgrown wheat and let them know that survival's a harvest
+    they won't be reaping!\""
+  type: 0
+  icon: {fileID: 21300000, guid: 72a92e2ac1b0f0146930f2ce09b9bf30, type: 3}
+  dropPrefab: {fileID: 1000426898781816409, guid: a0d6ed3ff5b6f454b916ea7cdbcf4c39,
+    type: 3}
+  canStack: 0
+  maxStackAmount: 0
+  consumable: []
+  equipPrefab: {fileID: 3180004505233914195, guid: aa11e409e85f00b45b30fa7f4e411c74,
+    type: 3}
