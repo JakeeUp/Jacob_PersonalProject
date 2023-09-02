@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3ce4d437e7df0542823f8e02ee7c11b, type: 3}
+  m_Name: Assualt_Weapon
+  m_EditorClassIdentifier: 
+  ItemName: M4A1
+  itemDescription: blah blah
+  type: 0
+  icon: {fileID: 21300000, guid: 9411272ddaed09a48bc25ddac0a6c56d, type: 3}
+  dropPrefab: {fileID: 997732614627563833, guid: 236fa42aeb8b35047b1f155fc351d0d9,
+    type: 3}
+  canStack: 0
+  maxStackAmount: 0
+  consumable: []
+  equipPrefab: {fileID: 2333917208937848932, guid: 097ebcf7eaa4e3d42a7e8e918e1e2834,
+    type: 3}

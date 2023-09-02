@@ -25,6 +25,8 @@ public class Inventory : MonoBehaviour
     public GameObject unequipButton;
     private PlayerController controller;
     private PlayerAttributes attr;
+    private EquipTools tools;
+    
 
     private int curEquipIndex;
 
@@ -55,6 +57,11 @@ public class Inventory : MonoBehaviour
             uiSlots[i].ClearSlot();
         }
 
+    }
+
+    private void Update()
+    {
+        tools = GameObject.FindObjectOfType<EquipTools>();
     }
     public void OnInventoryButton(InputAction.CallbackContext context)
     {
@@ -214,6 +221,30 @@ public class Inventory : MonoBehaviour
                    case ConsumableType.Hunger: attr.Eat(selectedItem.item.consumable[x].value); break;
                    case ConsumableType.Thirst: attr.Drink(selectedItem.item.consumable[x].value); break;
                 }
+
+                if(tools != null && tools.assaultType == true)
+                {
+                    switch(selectedItem.item.consumable[x].type)
+                    {
+                        case ConsumableType.assaultAmmo: tools.AssaultReload(selectedItem.item.consumable[x].value); break;
+                        default:return;
+
+                    }
+                }else if(tools != null && tools.pistolType == true)
+                {
+                    switch (selectedItem.item.consumable[x].type)
+                    {
+                        case ConsumableType.pistolAmmo: tools.PistolReload(selectedItem.item.consumable[x].value); break;
+
+
+                        default:return;
+                    }
+                }
+                else
+                {
+                    return;
+                }
+
 
             }
 

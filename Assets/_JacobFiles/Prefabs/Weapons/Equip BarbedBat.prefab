@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3664043334633985316}
   - component: {fileID: -1872292320698039060}
+  - component: {fileID: 3297126520834932903}
   m_Layer: 11
   m_Name: Equip BarbedBat
   m_TagString: Untagged
@@ -45,6 +46,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2e8972251545e4ea4eafbe2a7fb4d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRate: 1
+  attacking: 0
+  attackDistance: 3
+  DoesGatherResources: 0
+  DoesDealDmg: 1
+  dmg: 2
+--- !u!95 &3297126520834932903
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054670979462945543}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 03056198c696a0141958ecab5f48ae07, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &4814342533657667619
 PrefabInstance:
   m_ObjectHideFlags: 0
