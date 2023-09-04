@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 public class EquipManager : MonoBehaviour
@@ -12,7 +13,9 @@ public class EquipManager : MonoBehaviour
     public Equip currentEquip;
     public Transform equipParent;
     private PlayerController player;
+    public Image crosshair;
 
+    public bool autoFire;
 
     private void Awake()
     {
@@ -25,16 +28,39 @@ public class EquipManager : MonoBehaviour
         if(context.phase == InputActionPhase.Performed && currentEquip != null && player.canLook == true)
         {
             currentEquip.OnAttackInput();
+            autoFire = true;
         }
+        if (context.phase == InputActionPhase.Canceled && currentEquip != null && player.canLook == true)
+        {
+            autoFire = false;
+        }
+
+
     }
     public void OnAltAttackInput(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed && currentEquip != null && player.canLook == true)
         {
             currentEquip.OnAltAttackInput();
+            //crosshair.enabled = false;
+        }
+        //else
+        //    crosshair.enabled = true;
+    }
+    public void DisableCrosshairImage()
+    {
+        if (crosshair != null)
+        {
+            crosshair.enabled = false;
         }
     }
-
+    public void EnableCrosshairImage()
+    {
+        if (crosshair != null)
+        {
+            crosshair.enabled = true;
+        }
+    }
     public void EquipNew(ItemData item)
     {
         UnEquip();

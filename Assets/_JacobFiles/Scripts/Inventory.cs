@@ -25,7 +25,6 @@ public class Inventory : MonoBehaviour
     public GameObject unequipButton;
     private PlayerController controller;
     private PlayerAttributes attr;
-    private EquipTools tools;
     
 
     private int curEquipIndex;
@@ -59,10 +58,7 @@ public class Inventory : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        tools = GameObject.FindObjectOfType<EquipTools>();
-    }
+  
     public void OnInventoryButton(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
@@ -220,30 +216,32 @@ public class Inventory : MonoBehaviour
                    case ConsumableType.Health: attr.Heal(selectedItem.item.consumable[x].value); break;
                    case ConsumableType.Hunger: attr.Eat(selectedItem.item.consumable[x].value); break;
                    case ConsumableType.Thirst: attr.Drink(selectedItem.item.consumable[x].value); break;
+                    case ConsumableType.assaultAmmo: AmmoManager.instance.ReloadAssault(selectedItem.item.consumable[x].value); break;
+                    case ConsumableType.pistolAmmo: AmmoManager.instance.ReloadPistol(selectedItem.item.consumable[x].value); break;
                 }
 
-                if(tools != null && tools.assaultType == true)
-                {
-                    switch(selectedItem.item.consumable[x].type)
-                    {
-                        case ConsumableType.assaultAmmo: tools.AssaultReload(selectedItem.item.consumable[x].value); break;
-                        default:return;
+                //if(tools != null && tools.assaultType == true)
+                //{
+                //    switch(selectedItem.item.consumable[x].type)
+                //    {
+                //        case ConsumableType.assaultAmmo: tools.AssaultReload(selectedItem.item.consumable[x].value); break;
+                //        default:return;
 
-                    }
-                }else if(tools != null && tools.pistolType == true)
-                {
-                    switch (selectedItem.item.consumable[x].type)
-                    {
-                        case ConsumableType.pistolAmmo: tools.PistolReload(selectedItem.item.consumable[x].value); break;
+                //    }
+                //}else if(tools != null && tools.pistolType == true)
+                //{
+                //    switch (selectedItem.item.consumable[x].type)
+                //    {
+                //        case ConsumableType.pistolAmmo: tools.PistolReload(selectedItem.item.consumable[x].value); break;
 
 
-                        default:return;
-                    }
-                }
-                else
-                {
-                    return;
-                }
+                //        default:return;
+                //    }
+                //}
+                //else
+                //{
+                //    return;
+                //}
 
 
             }

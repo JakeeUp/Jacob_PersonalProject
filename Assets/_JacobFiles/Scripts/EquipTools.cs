@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class EquipTools : Equip
 {
@@ -10,7 +12,7 @@ public class EquipTools : Equip
     public bool DoesGatherResources;
     public bool DoesDealDmg;
     public int dmg;
-
+    private EquipManager equipManager;
     [Header("Ranged Weapon")]
     public bool pistolType;
     public bool assaultType;
@@ -23,17 +25,40 @@ public class EquipTools : Equip
     private Camera cam;
     public Sprite weaponSprite;
 
+    [Header("Zoom")]
+    public bool isScoped;
+    private Scope scope;
+    public float zoomFOV = 10f;
+    public float normalFov;
+    public bool isSniper;
+
+
     private void Awake()
     {
         itemAnim = GetComponent<Animator>();
         cam = Camera.main;
         audios= GetComponent<AudioSource>();
+        equipManager = FindObjectOfType<EquipManager>();
     }
 
     private void Start()
     {
         PlayerPrefs.GetFloat("CurrentPistolAmmo");
         PlayerPrefs.GetFloat("CurrentAssualtAmmo");
+    }
+
+    private void Update()
+    {
+        scope = GameObject.FindObjectOfType<Scope>();
+        AutoFire();
+    }
+
+    private void AutoFire()
+    {
+        if (EquipManager.instance.autoFire == true)
+        {
+            OnAttackInput();
+        }
     }
 
     public override void OnAttackInput()
@@ -75,31 +100,46 @@ public class EquipTools : Equip
 
     public override void OnAltAttackInput()
     {
-        if(!attacking && !pistolType && !assaultType)
+
+       
+        if (isSniper == true)
         {
-            attacking = true;
-            itemAnim.SetTrigger("AltAttacking");
-            Invoke("OnCanAttack", attackRate);
+            isScoped = !isScoped;
+            scope.scopeImage.SetActive(isScoped);
+            scope.weaponCamera.SetActive(!isScoped);
+
+            if (isScoped == true)
+            {
+                //change the fov of main camera to zoom fov
+                normalFov = scope.mainCam.fieldOfView;
+                scope.mainCam.fieldOfView = zoomFOV;
+                equipManager.DisableCrosshairImage();
+            }
+            if (isScoped == false)
+            {
+                scope.mainCam.fieldOfView = normalFov;
+                equipManager.EnableCrosshairImage();
+            }
         }
     }
 
-    public void PistolReload(float amount)
-    {
-        if(pistolType)
-        {
-            AmmoManager.instance.ReloadPistol(amount);
-            PlayerPrefs.SetFloat("CurrentPistolAmmo", AmmoManager.instance.currentSmallAmmo);
-        }
-    }
+    //public void PistolReload(float amount)
+    //{
+    //    if(pistolType)
+    //    {
+    //        AmmoManager.instance.ReloadPistol(amount);
+    //        PlayerPrefs.SetFloat("CurrentPistolAmmo", AmmoManager.instance.currentSmallAmmo);
+    //    }
+    //}
 
-    public void AssaultReload(float amount)
-    {
-        if(assaultType)
-        {
-            AmmoManager.instance.ReloadAssault(amount);
-            PlayerPrefs.SetFloat("CurrentAssualtAmmo", AmmoManager.instance.currentLargeAmmo);
-        }
-    }
+    //public void AssaultReload(float amount)
+    //{
+    //    if(assaultType)
+    //    {
+    //        AmmoManager.instance.ReloadAssault(amount);
+    //        PlayerPrefs.SetFloat("CurrentAssualtAmmo", AmmoManager.instance.currentLargeAmmo);
+    //    }
+    //}
 
     void OnCanAttack()
     {

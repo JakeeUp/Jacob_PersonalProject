@@ -18,6 +18,8 @@ public class AmmoManager : MonoBehaviour
     public float maxSmallAmmo;
     public float currentLargeAmmo;
     public float maxLargeAmmo;
+    public AudioClip reloadSound;
+    private AudioSource audios;
 
     private void Awake()
     {
@@ -27,23 +29,29 @@ public class AmmoManager : MonoBehaviour
     private void Start()
     {
         WeaponUI.SetActive(false);
+        audios = GetComponent<AudioSource>();
         currentSmallAmmo = PlayerPrefs.GetFloat("CurrentPistolAmmo");
         currentLargeAmmo = PlayerPrefs.GetFloat("CurrentAssaultAmmo");
+
+       
     }
 
     private void Update()
     {
         equipTools = GameObject.FindObjectOfType<EquipTools>();
-
+        if(currentLargeAmmo <= 0)
+        {
+            currentLargeAmmo = 0;
+        }
         if (equipTools != null)
         {
             WeaponUI.SetActive(true);
             icon.sprite = equipTools.weaponSprite;
             AmmoText.text = string.Empty;
             if (equipTools.assaultType == true)
-                AmmoText.text = ("" + currentLargeAmmo + "/" + "" + currentLargeAmmo).ToString();
+                AmmoText.text = ("" + currentLargeAmmo + "/" + "" + maxLargeAmmo).ToString();
             else if (equipTools.pistolType == true)
-                AmmoText.text = ("" + currentSmallAmmo + "/" + "" + currentSmallAmmo).ToString();
+                AmmoText.text = ("" + currentSmallAmmo + "/" + "" + maxSmallAmmo).ToString();
         }
         else
         {
@@ -54,6 +62,8 @@ public class AmmoManager : MonoBehaviour
     public void ReloadPistol(float amount)
     {
         currentSmallAmmo += amount;
+        audios.PlayOneShot(reloadSound);
+
         if (currentSmallAmmo >= maxSmallAmmo)
         {
             currentSmallAmmo = maxSmallAmmo;
@@ -64,6 +74,8 @@ public class AmmoManager : MonoBehaviour
     public void ReloadAssault(float amount)
     {
         currentLargeAmmo += amount;
+        audios.PlayOneShot(reloadSound);
+
         if (currentLargeAmmo >= maxLargeAmmo)
         {
             currentLargeAmmo = maxLargeAmmo;
