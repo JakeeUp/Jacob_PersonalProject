@@ -10,16 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3ce4d437e7df0542823f8e02ee7c11b, type: 3}
-  m_Name: Assault_AUG
+  m_Name: Rifle Stock
   m_EditorClassIdentifier: 
-  ItemName: Apocalyspe Aug
-  itemDescription: zoom test
-  type: 0
-  icon: {fileID: 21300000, guid: 099c8b54f22dfdf4b90894f3d15af90c, type: 3}
-  dropPrefab: {fileID: 1431900994358225546, guid: 6aa78b4cc320b484eac4b53a4c3e140b,
-    type: 3}
+  ItemName: Rifle Stock
+  itemDescription: used to craft rifle
+  type: 2
+  icon: {fileID: 0}
+  dropPrefab: {fileID: 0}
   canStack: 0
   maxStackAmount: 0
   consumable: []
-  equipPrefab: {fileID: 8826725140448344915, guid: ea3590235bdc48d49a1b03a8da74fe5d,
-    type: 3}
+  equipPrefab: {fileID: 0}

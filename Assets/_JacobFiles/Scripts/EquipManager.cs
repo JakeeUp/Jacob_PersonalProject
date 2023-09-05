@@ -13,7 +13,7 @@ public class EquipManager : MonoBehaviour
     public Equip currentEquip;
     public Transform equipParent;
     private PlayerController player;
-    public Image crosshair;
+    public List<Image> imageList;
 
     public bool autoFire;
 
@@ -49,16 +49,22 @@ public class EquipManager : MonoBehaviour
     }
     public void DisableCrosshairImage()
     {
-        if (crosshair != null)
+        foreach (Image image in imageList)
         {
-            crosshair.enabled = false;
+            if (image != null)
+            {
+                image.enabled = false;
+            }
         }
     }
     public void EnableCrosshairImage()
     {
-        if (crosshair != null)
+        foreach (Image image in imageList)
         {
-            crosshair.enabled = true;
+            if (image != null)
+            {
+                image.enabled = true;
+            }
         }
     }
     public void EquipNew(ItemData item)

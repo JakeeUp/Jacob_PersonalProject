@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3ce4d437e7df0542823f8e02ee7c11b, type: 3}
   m_Name: Assualt_Weapon
   m_EditorClassIdentifier: 
-  ItemName: M4A1
-  itemDescription: blah blah
+  ItemName: Zombie Zapper
+  itemDescription: Rifle
   type: 0
   icon: {fileID: 21300000, guid: 9411272ddaed09a48bc25ddac0a6c56d, type: 3}
   dropPrefab: {fileID: 997732614627563833, guid: 236fa42aeb8b35047b1f155fc351d0d9,

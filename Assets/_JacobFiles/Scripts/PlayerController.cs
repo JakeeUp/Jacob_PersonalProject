@@ -55,10 +55,12 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool canLook = true;
 
+    public static PlayerController instance;
     private void Awake()
     {
         playerRig = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        instance = this;
     }
     private void Start()
     {

@@ -114,6 +114,7 @@ public class EquipTools : Equip
                 normalFov = scope.mainCam.fieldOfView;
                 scope.mainCam.fieldOfView = zoomFOV;
                 equipManager.DisableCrosshairImage();
+
             }
             if (isScoped == false)
             {
