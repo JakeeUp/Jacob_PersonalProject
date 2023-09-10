@@ -52,6 +52,18 @@ MonoBehaviour:
   DoesGatherResources: 0
   DoesDealDmg: 1
   dmg: 2
+  pistolType: 0
+  assaultType: 0
+  muzzle: {fileID: 0}
+  muzzlePoint: {fileID: 0}
+  shotSound: {fileID: 0}
+  weaponSprite: {fileID: 0}
+  isScoped: 0
+  zoomFOV: 10
+  normalFov: 0
+  isSniper: 0
+  bloodEffect: {fileID: 7392223678990737092, guid: 1c0387f8641c5fa47b8ff1e037207d16,
+    type: 3}
 --- !u!95 &7082704243300652108
 Animator:
   serializedVersion: 5

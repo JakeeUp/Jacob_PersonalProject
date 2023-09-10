@@ -90,6 +90,12 @@ MonoBehaviour:
   muzzlePoint: {fileID: 8099779369844602565}
   shotSound: {fileID: 0}
   weaponSprite: {fileID: 21300000, guid: 9411272ddaed09a48bc25ddac0a6c56d, type: 3}
+  isScoped: 0
+  zoomFOV: 10
+  normalFov: 0
+  isSniper: 0
+  bloodEffect: {fileID: 7392223678990737092, guid: 1c0387f8641c5fa47b8ff1e037207d16,
+    type: 3}
 --- !u!95 &6070638583995404312
 Animator:
   serializedVersion: 5

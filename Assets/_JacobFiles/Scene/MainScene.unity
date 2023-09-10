@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5.355534, g: 3.9601483, b: 3.201985, a: 1}
+  m_IndirectSpecularColor: {r: 5.0171094, g: 3.4692922, b: 2.3049433, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3165,6 +3165,7 @@ GameObject:
   - component: {fileID: 494505314}
   - component: {fileID: 494505313}
   - component: {fileID: 494505316}
+  - component: {fileID: 494505317}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -3208,19 +3209,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiType: 0
-  detectDis: 0
-  safeDis: 0
-  health: 0
-  walkSpeed: 0
-  runSpeed: 0
-  drops: []
-  minRoamDis: 0
-  maxRoamDis: 0
-  minRoamWaitTime: 0
-  maxRoamWaitTime: 0
-  dmg: 0
-  attackRate: 0
-  attackDistance: 0
+  detectDis: 3
+  safeDis: 6
+  health: 10
+  walkSpeed: 0.5
+  runSpeed: 0.5
+  drops:
+  - {fileID: 11400000, guid: dab514884bc8c774ba44093159e393f9, type: 2}
+  minRoamDis: 4
+  maxRoamDis: 6
+  minRoamWaitTime: 4
+  maxRoamWaitTime: 6
+  dmg: 10
+  attackRate: 1
+  attackDistance: 2
+  bloodTrack:
+  - {fileID: 100000, guid: 358b75ea5451cf143ab19029a189097d, type: 3}
+  - {fileID: 100000, guid: cfc7596704bbd7f489156fcd4c05c7e9, type: 3}
+  - {fileID: 100000, guid: 18a11fd6df8ceb449b8785301026d639, type: 3}
+  - {fileID: 100000, guid: 6fe4d785744af2c40a2157f5b209d97f, type: 3}
+  - {fileID: 100000, guid: 14987c031123b98408a165a8bf1288d4, type: 3}
+  - {fileID: 100000, guid: aec54d7a991d7b644b145d550a4b7831, type: 3}
+  - {fileID: 100000, guid: 43dd1ba2a5dde844eb01240da13ab96b, type: 3}
 --- !u!4 &494505315
 Transform:
   m_ObjectHideFlags: 0
@@ -3259,6 +3269,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &494505317
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494505312}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 9d537b5be0e077d4c8b19985ad9a0b4f, type: 3}
+  m_Controller: {fileID: 9100000, guid: 3a53d3f22c85e90408f2a41b5bd0ffab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &559251748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 496088, guid: dc8f3955c063af240afd23143f496335,
@@ -17510,6 +17541,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8681533278b4b5c49b1c0ffc3f942ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &4708674650581580235
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3724810133994032072, guid: 1c0387f8641c5fa47b8ff1e037207d16,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.31076097
+      objectReference: {fileID: 0}
+    - target: {fileID: 3724810133994032072, guid: 1c0387f8641c5fa47b8ff1e037207d16,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.34983772
+      objectReference: {fileID: 0}
+    - target: {fileID: 3724810133994032072, guid: 1c0387f8641c5fa47b8ff1e037207d16,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.30095488
+      objectReference: {fileID: 0}
+    - target: {fileID: 3724810133994032072, guid: 1c0387f8641c5fa47b8ff1e037207d16,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3724810133994032072, guid: 1c0387f8641c5fa47b8ff1e037207d16,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3724810133994032072, guid: 1c0387f8641c5fa47b8ff1e037207d16,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3724810133994032072, guid: 1c0387f8641c5fa47b8ff1e037207d16,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3724810133994032072, guid: 1c0387f8641c5fa47b8ff1e037207d16,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3724810133994032072, guid: 1c0387f8641c5fa47b8ff1e037207d16,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3724810133994032072, guid: 1c0387f8641c5fa47b8ff1e037207d16,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392223678990737092, guid: 1c0387f8641c5fa47b8ff1e037207d16,
+        type: 3}
+      propertyPath: m_Name
+      value: BloodFiller
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c0387f8641c5fa47b8ff1e037207d16, type: 3}
 --- !u!1001 &4766126798388100867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18284,3 +18383,4 @@ SceneRoots:
   - {fileID: 1971253657}
   - {fileID: 2046551518}
   - {fileID: 494505315}
+  - {fileID: 4708674650581580235}

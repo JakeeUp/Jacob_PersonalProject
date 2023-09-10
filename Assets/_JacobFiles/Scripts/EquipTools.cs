@@ -31,6 +31,7 @@ public class EquipTools : Equip
     public float zoomFOV = 10f;
     public float normalFov;
     public bool isSniper;
+    public GameObject bloodEffect;
 
 
     private void Awake()
@@ -158,6 +159,8 @@ public class EquipTools : Equip
             if(DoesDealDmg && hit.collider.GetComponent<IDamageable>() != null)
             {
                 hit.collider.GetComponent<IDamageable>().TakeDamage(dmg);
+                GameObject obj = Instantiate(bloodEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(obj, 3);
             }
         }
         Debug.Log("Hit");
