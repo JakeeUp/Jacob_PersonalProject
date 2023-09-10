@@ -11,6 +11,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
     [Header("Movement Sound")]
     private AudioSource audioSource;
     public AudioClip[] stepSounds;
