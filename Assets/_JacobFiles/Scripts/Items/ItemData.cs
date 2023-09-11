@@ -14,6 +14,7 @@ public enum ConsumableType
     Hunger,
     Thirst,
     Health,
+    Battery,
     pistolAmmo,
     assaultAmmo
 }

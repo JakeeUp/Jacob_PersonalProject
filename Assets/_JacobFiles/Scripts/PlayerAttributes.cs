@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 public class PlayerAttributes : MonoBehaviour, IDamageable
 {
     public pAttributes _health;
     public pAttributes _hunger;
     public pAttributes _thirst;
+
+    public pAttributes _flashLight;
+    public bool switchOn;
+    public GameObject flashLightObj;
 
     public float EmtpyHungerHPDecay;
     public float EmptythirstHPDecay;
@@ -18,7 +23,7 @@ public class PlayerAttributes : MonoBehaviour, IDamageable
         _health.currentValue = _health.startValue;
         _hunger.currentValue = _hunger.startValue;
         _thirst.currentValue = _thirst.startValue;
-
+        _flashLight.currentValue = _flashLight.startValue;
     }
 
     private void Update()
@@ -27,6 +32,23 @@ public class PlayerAttributes : MonoBehaviour, IDamageable
         Handle_HealthDecayFromNoHungerOrThirst();
         Handle_PlayerDeath();
         Handle_UI();
+        HandleFlashLight();
+    }
+
+    private void HandleFlashLight()
+    {
+        if (switchOn == true)
+        {
+            _flashLight.Subtract(_flashLight.decayRate * Time.deltaTime);
+        }
+
+        if (_flashLight.currentValue == 0.0f)
+        {
+            flashLightObj.SetActive(false);
+            switchOn = false;
+        }
+
+
     }
 
     private void Handle_NeedsOverTime()
@@ -55,15 +77,27 @@ public class PlayerAttributes : MonoBehaviour, IDamageable
             Die();
         }
     }
-
+    public void OnFlashInput(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+            Switch();
+    }
     private void Handle_UI()
     {
         _health.uiSlider.fillAmount = _health.GetPercentage();
         _hunger.uiSlider.fillAmount = _hunger.GetPercentage();
         _thirst.uiSlider.fillAmount = _thirst.GetPercentage();
+        _flashLight.uiSlider.fillAmount = _flashLight.GetPercentage();
     }
 
-
+    public void Switch()
+    {
+        switchOn = !switchOn;
+        if (switchOn == true)
+            flashLightObj.SetActive(true);
+        else
+            flashLightObj.SetActive(false);
+    }
     public void Heal(float amount)
     {
         _health.Add(amount);
@@ -78,6 +112,11 @@ public class PlayerAttributes : MonoBehaviour, IDamageable
     {
         _thirst.Add(amount);
     }
+    public void Recharge(float amount)
+    {
+        _flashLight.Add(amount);
+    }
+
 
     public void TakeDamage(int damageAmount)
     {

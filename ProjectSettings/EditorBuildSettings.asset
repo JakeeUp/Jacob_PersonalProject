@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/OutdoorsScene.unity
-    guid: 8124e5870f4fd4c779e7a5f994e84ad1
+    path: Assets/_JacobFiles/Scene/MainScene.unity
+    guid: 412e6bfeacfb4fd41ac990c44d5d4005
+  - enabled: 1
+    path: Assets/_JacobFiles/Scene/EndingScene.unity
+    guid: 15ec80e8b12d5344d8689f8e6c8fbe13
   m_configObjects: {}

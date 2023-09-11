@@ -43,6 +43,8 @@ public class Lights : MonoBehaviour, IInteractable
                 {
                     lightObject.SetActive(true);
                 }
+                infoText.text = TalkText[Random.Range(0, TalkText.Length)];
+                Invoke("DeleteText", 5);
             }
             else
             {
@@ -50,8 +52,7 @@ public class Lights : MonoBehaviour, IInteractable
                 {
                     lightObject.SetActive(false);
                 }
-                infoText.text = TalkText[Random.Range(0, TalkText.Length)];
-                Invoke("DeleteText", 5);
+                
             }
         }
 

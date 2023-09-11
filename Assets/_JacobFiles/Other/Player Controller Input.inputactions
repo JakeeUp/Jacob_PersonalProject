@@ -51,6 +51,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "FlashLight",
+                    "type": "Button",
+                    "id": "1a51ea12-6cf6-4366-8e09-c4b5f6e1075f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Pause Menu",
                     "type": "Button",
                     "id": "5865a67d-c39b-415c-9be7-8dfe94d2eda4",
@@ -248,6 +257,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c684b769-1368-4ddb-8381-c2e397a6e36f",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FlashLight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
