@@ -80,5 +80,10 @@ public class Keypad : MonoBehaviour, IInteractable
             GetComponent<BoxCollider>().enabled = false;
         }
     }
+    public void ClearInput()
+    {
+        textCode.text = string.Empty;
+        audios.PlayOneShot(typeSound);
+    }
 
 }

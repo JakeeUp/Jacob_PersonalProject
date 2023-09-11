@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8350028203769331220}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MuzzlePoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 6480196133231108119}
   - component: {fileID: 3061946598337428597}
   - component: {fileID: 6890998602303200418}
+  - component: {fileID: 7447653751099802800}
   m_Layer: 11
   m_Name: Equip AUG
   m_TagString: Untagged
@@ -107,6 +108,29 @@ MonoBehaviour:
   zoomFOV: 10
   normalFov: 0
   isSniper: 1
+  bloodEffect: {fileID: 7392223678990737092, guid: 1c0387f8641c5fa47b8ff1e037207d16,
+    type: 3}
+--- !u!95 &7447653751099802800
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8826725140448344915}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 838e041c3bc23884f9261016534acb93, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &9168084364498769930
 PrefabInstance:
   m_ObjectHideFlags: 0
