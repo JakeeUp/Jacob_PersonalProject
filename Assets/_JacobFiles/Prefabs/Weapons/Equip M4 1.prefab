@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690475188761483116}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.51291287, y: 0.51291287, z: 0.48674467, w: 0.48674467}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0.164, y: -0.106, z: 0.783}
   m_LocalScale: {x: 0.78706795, y: 0.89820874, z: 0.89820874}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 916753027989559638}
-  m_LocalEulerAnglesHint: {x: 0, y: 92.999, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &2333917208937848932
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 916753027989559638}
   - component: {fileID: 2999493645532194948}
   - component: {fileID: 6070638583995404312}
+  - component: {fileID: -8283518044714368227}
   m_Layer: 11
   m_Name: Equip M4 1
   m_TagString: Untagged
@@ -88,13 +89,13 @@ MonoBehaviour:
   assaultType: 1
   muzzle: {fileID: 2326025969250719093, guid: eef2bb574be9e5845ad8fa4968dfea47, type: 3}
   muzzlePoint: {fileID: 8099779369844602565}
-  shotSound: {fileID: 0}
+  shotSound: {fileID: 8300000, guid: 875a61dd94f0ff64cba56a42b6e5a3f9, type: 3}
   weaponSprite: {fileID: 21300000, guid: 9411272ddaed09a48bc25ddac0a6c56d, type: 3}
   isScoped: 0
   zoomFOV: 10
   normalFov: 0
   isSniper: 0
-  bloodEffect: {fileID: 7392223678990737092, guid: 1c0387f8641c5fa47b8ff1e037207d16,
+  bloodEffect: {fileID: 2934967114067058084, guid: 57cc50f382d90794b93bbd19dab92c04,
     type: 3}
 --- !u!95 &6070638583995404312
 Animator:
@@ -117,6 +118,102 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!82 &-8283518044714368227
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2333917208937848932}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 1
+  BypassListenerEffects: 1
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5576696182817955393
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +275,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5856408921502264986, guid: 53ced819680e9c247b6729d554ff3288, type: 3}
+  - {fileID: 2100000, guid: 326f25183a492234695762211c170b9b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -45,6 +45,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2e8972251545e4ea4eafbe2a7fb4d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRate: 1.5
+  attacking: 0
+  attackDistance: 3
+  DoesGatherResources: 0
+  DoesDealDmg: 1
+  dmg: 3
+  pistolType: 0
+  assaultType: 0
+  muzzle: {fileID: 0}
+  muzzlePoint: {fileID: 0}
+  shotSound: {fileID: 0}
+  weaponSprite: {fileID: 0}
+  isScoped: 0
+  zoomFOV: 10
+  normalFov: 0
+  isSniper: 0
+  bloodEffect: {fileID: 2934967114067058084, guid: 57cc50f382d90794b93bbd19dab92c04,
+    type: 3}
 --- !u!1001 &2010788873957390949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -118,11 +136,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 2103439704137579896, guid: a4dd9b71c6dd9904ab022fa28432d4b9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 171f49f0f1e2f204581fe30abab1c41d, type: 2}
     - target: {fileID: 5496237655507790765, guid: a4dd9b71c6dd9904ab022fa28432d4b9,
         type: 3}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 6441538211951052864, guid: a4dd9b71c6dd9904ab022fa28432d4b9,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6091a5614669d8c4791aeb1c9358c6d2, type: 2}
     - target: {fileID: 8862118527298509179, guid: a4dd9b71c6dd9904ab022fa28432d4b9,
         type: 3}
       propertyPath: m_Layer

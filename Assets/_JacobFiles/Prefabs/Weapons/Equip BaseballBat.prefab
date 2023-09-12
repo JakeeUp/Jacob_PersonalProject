@@ -62,7 +62,7 @@ MonoBehaviour:
   zoomFOV: 10
   normalFov: 0
   isSniper: 0
-  bloodEffect: {fileID: 7392223678990737092, guid: 1c0387f8641c5fa47b8ff1e037207d16,
+  bloodEffect: {fileID: 2934967114067058084, guid: 57cc50f382d90794b93bbd19dab92c04,
     type: 3}
 --- !u!95 &7082704243300652108
 Animator:

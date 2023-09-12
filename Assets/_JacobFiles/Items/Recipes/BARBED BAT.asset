@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb7034883678c8419ed21e517a2b487, type: 3}
+  m_Name: BARBED BAT
+  m_EditorClassIdentifier: 
+  itemToCrafting: {fileID: 11400000, guid: 6564d71106ca924408073d1299b75492, type: 2}
+  cost:
+  - item: {fileID: 11400000, guid: 53bdcc4b1fa487e4e918eaf00f370000, type: 2}
+    quantity: 0
