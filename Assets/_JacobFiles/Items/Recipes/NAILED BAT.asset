@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: NAILED BAT
   m_EditorClassIdentifier: 
   itemToCrafting: {fileID: 11400000, guid: 8a9937a52a73c374f96943f884913b11, type: 2}
-  cost: []
+  cost:
+  - item: {fileID: 11400000, guid: 53bdcc4b1fa487e4e918eaf00f370000, type: 2}
+    quantity: 1
+  - item: {fileID: 11400000, guid: 7a870b7329bc3214e83824c7eec8ba76, type: 2}
+    quantity: 1

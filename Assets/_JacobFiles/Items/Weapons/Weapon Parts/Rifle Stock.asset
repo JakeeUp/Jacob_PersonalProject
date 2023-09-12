@@ -16,7 +16,8 @@ MonoBehaviour:
   itemDescription: used to craft rifle
   type: 2
   icon: {fileID: 0}
-  dropPrefab: {fileID: 0}
+  dropPrefab: {fileID: 6852371652377083094, guid: 44190648f73c2744cb90514f42972987,
+    type: 3}
   canStack: 0
   maxStackAmount: 0
   consumable: []

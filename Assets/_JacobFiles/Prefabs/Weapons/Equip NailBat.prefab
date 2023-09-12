@@ -52,6 +52,17 @@ MonoBehaviour:
   DoesGatherResources: 0
   DoesDealDmg: 1
   dmg: 2
+  pistolType: 0
+  assaultType: 0
+  muzzle: {fileID: 0}
+  muzzlePoint: {fileID: 0}
+  shotSound: {fileID: 0}
+  weaponSprite: {fileID: 0}
+  isScoped: 0
+  zoomFOV: 10
+  normalFov: 0
+  isSniper: 0
+  bloodEffect: {fileID: 0}
 --- !u!95 &8605879286116549084
 Animator:
   serializedVersion: 5
@@ -141,6 +152,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 5676889811515845004, guid: 0b9710c8d27b88b48b5cad1078b87535,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a9ca5096fc19dd741bd4298ecf7897fb, type: 2}
     - target: {fileID: 5741146982731360799, guid: 0b9710c8d27b88b48b5cad1078b87535,
         type: 3}
       propertyPath: m_Name
@@ -151,6 +167,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 6797187052779821166, guid: 0b9710c8d27b88b48b5cad1078b87535,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a9ca5096fc19dd741bd4298ecf7897fb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
