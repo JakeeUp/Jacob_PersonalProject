@@ -16,7 +16,7 @@ MonoBehaviour:
   itemDescription: You can attemot to juice up your trusty flash light, but with
     this one I don't think it's going to do you that much good.
   type: 1
-  icon: {fileID: 21300000, guid: 228f8d4ac11034540861ec3d95120898, type: 3}
+  icon: {fileID: 21300000, guid: 68e041bd96913284586a91bd18ef31b6, type: 3}
   dropPrefab: {fileID: 6151984821609375565, guid: 4894a74442b8d864cbe8371ebc5dacc0,
     type: 3}
   canStack: 1

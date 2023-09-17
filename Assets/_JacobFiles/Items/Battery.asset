@@ -18,7 +18,7 @@ MonoBehaviour:
     had sunglasses. It's like the secret weapon in your quest to be the brightest
     survivor!"
   type: 1
-  icon: {fileID: 21300000, guid: 228f8d4ac11034540861ec3d95120898, type: 3}
+  icon: {fileID: 21300000, guid: a7ca5fb85f2369b488b53fc80135bbf8, type: 3}
   dropPrefab: {fileID: 6151984821609375565, guid: 4894a74442b8d864cbe8371ebc5dacc0,
     type: 3}
   canStack: 1

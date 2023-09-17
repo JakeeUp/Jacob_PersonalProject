@@ -67,6 +67,7 @@ public class MainMenu : MonoBehaviour
     public void OnQuitButton()
     {
         Application.Quit();
+        Debug.Log("Quit");
         audioS.PlayOneShot(clickSFX);
     }
 }

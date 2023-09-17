@@ -15,7 +15,7 @@ MonoBehaviour:
   ItemName: Apocalyspe Aug
   itemDescription: zoom test
   type: 0
-  icon: {fileID: 21300000, guid: 099c8b54f22dfdf4b90894f3d15af90c, type: 3}
+  icon: {fileID: 21300000, guid: 2fd206aef8028e74ba593f58c2c0a10e, type: 3}
   dropPrefab: {fileID: 1431900994358225546, guid: 6aa78b4cc320b484eac4b53a4c3e140b,
     type: 3}
   canStack: 0

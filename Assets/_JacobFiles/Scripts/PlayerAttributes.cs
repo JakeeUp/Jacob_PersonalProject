@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 public class PlayerAttributes : MonoBehaviour, IDamageable
 {
     public pAttributes _health;
@@ -17,6 +18,14 @@ public class PlayerAttributes : MonoBehaviour, IDamageable
     public float EmtpyHungerHPDecay;
     public float EmptythirstHPDecay;
     public UnityEvent getDamage;
+
+    public AudioSource audioSource;
+    public AudioClip damageAudioClip;
+    public AudioClip dieAudioClip;
+    public float dieDelay = 2.0f;
+
+    private PlayerController playerController;
+
     private void Start()
     {
         //current value is equal to the start value
@@ -24,6 +33,9 @@ public class PlayerAttributes : MonoBehaviour, IDamageable
         _hunger.currentValue = _hunger.startValue;
         _thirst.currentValue = _thirst.startValue;
         _flashLight.currentValue = _flashLight.startValue;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = damageAudioClip;
+        playerController = GetComponent<PlayerController>();
     }
 
     private void Update()
@@ -121,6 +133,10 @@ public class PlayerAttributes : MonoBehaviour, IDamageable
     public void TakeDamage(int damageAmount)
     {
         _health.Subtract(damageAmount);
+        if (audioSource != null && damageAudioClip != null)
+        {
+            audioSource.PlayOneShot(damageAudioClip);
+        }
         //if we get damage then invoke 
         getDamage?.Invoke();
     }
@@ -128,6 +144,24 @@ public class PlayerAttributes : MonoBehaviour, IDamageable
     public void Die()
     {
         Debug.Log("Player Died");
+        if (playerController != null)
+        {
+            playerController.enabled = false;
+        }
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        if (audioSource != null && dieAudioClip != null)
+        {
+            audioSource.PlayOneShot(dieAudioClip);
+        }
+        StartCoroutine(DelayedSceneTransition());
+    }
+    private IEnumerator DelayedSceneTransition()
+    {
+        yield return new WaitForSeconds(dieDelay);
+
+        // Transition to the main menu scene
+        SceneManager.LoadScene("MainMenu");
     }
 }
 

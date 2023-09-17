@@ -15,7 +15,7 @@ MonoBehaviour:
   ItemName: Rifle Body
   itemDescription: used to craft rifle
   type: 2
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 38f8a14e37da68540a096d573c6ca4ed, type: 3}
   dropPrefab: {fileID: 6852371652377083094, guid: 84074bfa4ac90814c98ec77de0661a10,
     type: 3}
   canStack: 0

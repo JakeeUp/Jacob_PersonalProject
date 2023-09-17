@@ -15,8 +15,9 @@ MonoBehaviour:
   ItemName: Nails
   itemDescription: Used to help craft nailed bat
   type: 0
-  icon: {fileID: 0}
-  dropPrefab: {fileID: 0}
+  icon: {fileID: 21300000, guid: 6e6852667c968f64a8610e131ee45a7b, type: 3}
+  dropPrefab: {fileID: 8942616603966038909, guid: ff0e5c2916b1ad94bae95d729b1f73b1,
+    type: 3}
   canStack: 0
   maxStackAmount: 0
   consumable: []

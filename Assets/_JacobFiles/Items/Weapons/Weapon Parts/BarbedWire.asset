@@ -15,7 +15,7 @@ MonoBehaviour:
   ItemName: BarbedWire
   itemDescription: Used to help make barbed wire Bat
   type: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 38f8a14e37da68540a096d573c6ca4ed, type: 3}
   dropPrefab: {fileID: 0}
   canStack: 0
   maxStackAmount: 0

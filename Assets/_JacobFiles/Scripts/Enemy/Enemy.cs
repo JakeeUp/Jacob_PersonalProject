@@ -44,6 +44,12 @@ public class Enemy : MonoBehaviour , IDamageable
     public float attackDistance;
     private float playerDistance;
     public GameObject[] bloodTrack;
+    public AudioSource audioSource;
+    public AudioClip hurt;
+    public AudioClip norm;
+    private bool isPlayingNormAudio = true;
+    private Coroutine switchToNormAudioCoroutine;
+
 
     [Header("Component")]
     private NavMeshAgent agent;
@@ -53,10 +59,31 @@ public class Enemy : MonoBehaviour , IDamageable
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
     private void Start()
     {
         SetState(AIState.Roaming);
+        PlayNormAudio();
+    }
+
+    private void PlayNormAudio()
+    {
+        isPlayingNormAudio = true;
+        audioSource.clip = norm;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+    private void PlayHurtAudio()
+    {
+        isPlayingNormAudio = false;
+        audioSource.clip = hurt;
+        audioSource.loop = false;
+        audioSource.Play();
+    }
+    private void StopNormAudio()
+    {
+        audioSource.Stop();
     }
     private void Update()
     {
@@ -241,6 +268,14 @@ public class Enemy : MonoBehaviour , IDamageable
     {
         health -= DamageAmount;
         animator.SetTrigger("Hit");
+        if (isPlayingNormAudio) 
+        {
+            StopNormAudio();
+            Debug.Log("Norm audio stopped");
+            PlayHurtAudio();
+            Debug.Log("Hurt audio playing");
+        }
+        Debug.Log($"Zombie hit : {DamageAmount}");
         GameObject obj = Instantiate(bloodTrack[Random.Range(0, bloodTrack.Length)], transform.position, Quaternion.identity);
         Destroy(obj, 3);
 
@@ -253,6 +288,17 @@ public class Enemy : MonoBehaviour , IDamageable
         {
             SetState(AIState.Fleeing);
         }
+
+        if (switchToNormAudioCoroutine != null)
+        {
+            StopCoroutine(switchToNormAudioCoroutine);
+        }
+        switchToNormAudioCoroutine = StartCoroutine(SwitchToNormAudioWithDelay());
+    }
+    private IEnumerator SwitchToNormAudioWithDelay()
+    {
+        yield return new WaitForSeconds(.5f); // Change the delay as needed
+        PlayNormAudio();
     }
 
     void Die()
