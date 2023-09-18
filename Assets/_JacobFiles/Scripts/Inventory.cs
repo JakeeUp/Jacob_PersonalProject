@@ -220,31 +220,6 @@ public class Inventory : MonoBehaviour
                     case ConsumableType.assaultAmmo: AmmoManager.instance.ReloadAssault(selectedItem.item.consumable[x].value); break;
                     case ConsumableType.pistolAmmo: AmmoManager.instance.ReloadPistol(selectedItem.item.consumable[x].value); break;
                 }
-
-                //if(tools != null && tools.assaultType == true)
-                //{
-                //    switch(selectedItem.item.consumable[x].type)
-                //    {
-                //        case ConsumableType.assaultAmmo: tools.AssaultReload(selectedItem.item.consumable[x].value); break;
-                //        default:return;
-
-                //    }
-                //}else if(tools != null && tools.pistolType == true)
-                //{
-                //    switch (selectedItem.item.consumable[x].type)
-                //    {
-                //        case ConsumableType.pistolAmmo: tools.PistolReload(selectedItem.item.consumable[x].value); break;
-
-
-                //        default:return;
-                //    }
-                //}
-                //else
-                //{
-                //    return;
-                //}
-
-
             }
 
         }

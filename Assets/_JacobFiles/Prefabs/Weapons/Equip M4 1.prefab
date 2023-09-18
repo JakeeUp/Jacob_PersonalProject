@@ -84,7 +84,7 @@ MonoBehaviour:
   attackDistance: 30
   DoesGatherResources: 0
   DoesDealDmg: 1
-  dmg: 1
+  dmg: 4
   pistolType: 0
   assaultType: 1
   muzzle: {fileID: 2326025969250719093, guid: eef2bb574be9e5845ad8fa4968dfea47, type: 3}

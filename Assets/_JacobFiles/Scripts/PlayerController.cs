@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PlayerAttributes))]
 [RequireComponent(typeof(InteractionManager))]
@@ -71,6 +72,19 @@ public class PlayerController : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider>();
         originalCapsuleHeight = capsuleCollider.height;
         originalCameraLocalPosition = cameraContainer.localPosition;
+    }
+    private void Update()
+    {
+        //if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        //{
+        //    GoToMainMenu();
+        //}
+    }
+    private void GoToMainMenu()
+    {
+        Cursor.lockState = CursorLockMode.None; 
+        canLook = false; 
+        SceneManager.LoadScene("MainMenu"); 
     }
 
     private void LateUpdate()
