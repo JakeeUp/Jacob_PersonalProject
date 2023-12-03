@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_JacobFiles/Scene/ObjectiveScene.unity
     guid: 5179a92e4e5ffbc4595d19a85f432b7c
-  - enabled: 1
+  - enabled: 0
     path: Assets/_JacobFiles/Scene/EndingScene.unity
     guid: 15ec80e8b12d5344d8689f8e6c8fbe13
   m_configObjects: {}

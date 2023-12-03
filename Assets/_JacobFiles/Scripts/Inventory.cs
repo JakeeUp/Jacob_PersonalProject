@@ -216,9 +216,9 @@ public class Inventory : MonoBehaviour
                    case ConsumableType.Health: attr.Heal(selectedItem.item.consumable[x].value); break;
                    case ConsumableType.Hunger: attr.Eat(selectedItem.item.consumable[x].value); break;
                    case ConsumableType.Thirst: attr.Drink(selectedItem.item.consumable[x].value); break;
-                    case ConsumableType.Battery: attr.Recharge(selectedItem.item.consumable[x].value);break;
-                    case ConsumableType.assaultAmmo: AmmoManager.instance.ReloadAssault(selectedItem.item.consumable[x].value); break;
-                    case ConsumableType.pistolAmmo: AmmoManager.instance.ReloadPistol(selectedItem.item.consumable[x].value); break;
+                   case ConsumableType.Battery: attr.Recharge(selectedItem.item.consumable[x].value);break;
+                   case ConsumableType.assaultAmmo: AmmoManager.instance.ReloadAssault(selectedItem.item.consumable[x].value); break;
+                   case ConsumableType.pistolAmmo: AmmoManager.instance.ReloadPistol(selectedItem.item.consumable[x].value); break;
                 }
             }
 
@@ -320,3 +320,9 @@ public class ItemSlot
     public ItemData item;
     public int quantity;
 }
+
+
+
+
+
+
