@@ -178,15 +178,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRate: 0.2
   attacking: 0
-  attackDistance: 50
+  attackDistance: 10
   DoesGatherResources: 0
   DoesDealDmg: 1
-  dmg: 25
+  dmg: 2
   pistolType: 0
   assaultType: 1
   muzzle: {fileID: 2326025969250719093, guid: eef2bb574be9e5845ad8fa4968dfea47, type: 3}
   muzzlePoint: {fileID: 8350028203769331220}
   shotSound: {fileID: 8300000, guid: 8472cf8d0f01f71428f20bf4e71451d9, type: 3}
+  audios: {fileID: 0}
   weaponSprite: {fileID: 21300000, guid: f59aa6b06242a4e4e90f8c5ed9560ff6, type: 3}
   isScoped: 0
   zoomFOV: 10

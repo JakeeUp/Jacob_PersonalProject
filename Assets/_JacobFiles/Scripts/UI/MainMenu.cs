@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public AudioClip startSFX;
+   // public AudioClip startSFX;
     public AudioClip clickSFX;
     public AudioClip musicSFX;
     private AudioSource audioS;
@@ -27,16 +27,14 @@ public class MainMenu : MonoBehaviour
     public void OnNewGameButton()
     {
         PlayerPrefs.DeleteAll();
-        audioS.PlayOneShot(startSFX);
         audioS.PlayOneShot(clickSFX);
-        Invoke("StartSound",5f);
+        Invoke("StartSound",0f);
     }
     public void OnStartGameButtonFromObjectiveMenu()
     {
         PlayerPrefs.DeleteAll();
-        audioS.PlayOneShot(startSFX);
         audioS.PlayOneShot(clickSFX);
-        Invoke("StartGame", 5f);
+        Invoke("StartGame", 0f);
     }
     public void OnControlsButton()
     {
@@ -47,9 +45,8 @@ public class MainMenu : MonoBehaviour
 
     public void BackButton()
     {
-        audioS.PlayOneShot(startSFX);
         audioS.PlayOneShot(clickSFX);
-        Invoke("ControlsMenuBackButton", 5f);
+        Invoke("ControlsMenuBackButton", 0f);
     }
     public void ControlsMenuBackButton()
     {

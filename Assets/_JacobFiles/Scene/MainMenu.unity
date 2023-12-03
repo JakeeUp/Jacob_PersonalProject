@@ -803,7 +803,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Undead Hospital: Outbreak'
+  m_text: OBJECT ORIENTED WEAPONS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 50658fc96b5b44144bcd5883cc735859, type: 2}
   m_sharedMaterial: {fileID: 4934021656173502151, guid: 50658fc96b5b44144bcd5883cc735859,
@@ -1901,7 +1901,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cb6e218cc45f04db7e7470cb8ad5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSFX: {fileID: 8300000, guid: 35ddae0f3df71b5479c651e0b3d271b4, type: 3}
   clickSFX: {fileID: 8300000, guid: e4f70f5d5e1447041937ee948226d189, type: 3}
   musicSFX: {fileID: 8300000, guid: 2ac61aaa069685d4590facf3dba945b1, type: 3}
 --- !u!82 &1875683503
@@ -2105,7 +2104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 83e050eb74610694f99b89e3500b2665, type: 2}
-  m_StaticLightingSkyUniqueID: 4
+  m_StaticLightingSkyUniqueID: 0
   m_StaticLightingCloudsUniqueID: 0
   m_StaticLightingVolumetricClouds: 0
 --- !u!4 &2013410475
